@@ -2,9 +2,11 @@ package BinarySearchTree;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Scanner;
 
 public class BinaryTree {
 	
+	static Scanner sc = new Scanner(System.in);
 	
 	static class TreeNode {
 		TreeNode left , right;
@@ -39,6 +41,21 @@ public class BinaryTree {
 			
 		}
 		return node;
+	}
+	
+	public static TreeNode createTree() {
+		int value = Integer.valueOf(sc.nextInt());
+		TreeNode root = new TreeNode(value);
+		boolean isExistLeft = sc.hasNextBoolean();
+		if(isExistLeft) {
+			root.left = createTree();
+		}
+		boolean isExistRight = sc.hasNextBoolean();
+		if(isExistRight) {
+			root.right = createTree();
+		}
+		
+		return root;
 	}
 	
 }
