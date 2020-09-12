@@ -58,4 +58,15 @@ public class BinaryTree {
 		return root;
 	}
 	
+	public static TreeNode createTreeUsingPreOrder() {
+		int value = sc.nextInt();
+		if(value == -1) {
+			return null;
+		}
+		TreeNode root = new TreeNode(value);
+		root.left = createTreeUsingPreOrder();
+		root.right = createTreeUsingPreOrder();
+		return root;
+	}
+	
 }
