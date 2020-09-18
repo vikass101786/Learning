@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-09-18T03:14:39.425Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36" etag="iT_dgwtLN7Amoqb9g_UC" version="13.7.3" type="github">
+<mxfile host="app.diagrams.net" modified="2020-09-18T03:20:20.249Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36" etag="wfbjPomFcItQBy0ZTvXh" version="13.7.3" type="github">
   <diagram id="4WW-Pr0SpVSJkoUppzza" name="Page-1">
     <mxGraphModel dx="1038" dy="580" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -63,6 +63,15 @@
         </mxCell>
         <mxCell id="F1TERW5y5AxO93p60IZN-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0;entryDx=0;entryDy=45;entryPerimeter=0;" edge="1" parent="1" source="F1TERW5y5AxO93p60IZN-5" target="F1TERW5y5AxO93p60IZN-9">
           <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F1TERW5y5AxO93p60IZN-29" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px&quot;&gt;Block servers will work with the clients to upload/download files from cloud storage&lt;/font&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
+          <mxGeometry x="95" y="560" width="570" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="F1TERW5y5AxO93p60IZN-30" value="&lt;div&gt;&lt;b&gt;&lt;font style=&quot;font-size: 14px&quot;&gt;Metadata&amp;nbsp;&lt;span&gt;servers will keep metadata of files updated in a SQL or NoSQL database&lt;/span&gt;&lt;/font&gt;&lt;/b&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="600" width="560" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="F1TERW5y5AxO93p60IZN-31" value="&lt;div&gt;&lt;b&gt;&lt;font style=&quot;font-size: 14px&quot;&gt;Synchronization servers will handle the workflow of notifying&amp;nbsp;&lt;span&gt;all clients about different changes for synchronization&lt;/span&gt;&lt;/font&gt;&lt;/b&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="640" width="780" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
