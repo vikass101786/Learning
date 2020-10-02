@@ -10,7 +10,14 @@ public class CycleDetectionInDirectedGraphUsingDFS<T> {
 
 	boolean isCycle(T source) {
 		Map<T, GraphDetails> map = new HashMap<T, GraphDetails>();
-		return dfsHelper(source, map);
+		for (Map.Entry<T, List<T>> iterMap : dgMap.entrySet()) {
+			T node = iterMap.getKey();
+			boolean cyclePresent = dfsHelper(node, map);
+			if (cyclePresent) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	private boolean dfsHelper(T source, Map<T, GraphDetails> map) {
