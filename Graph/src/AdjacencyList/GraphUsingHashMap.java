@@ -68,7 +68,36 @@ public class GraphUsingHashMap<T> {
 				map.put(v, list);
 			}
 		}
-
+	}
+	
+	public void addEdge(T source, T destination, Integer weight) {
+		
+		GraphWithWeight graphWithWeight = new GraphWithWeight();
+		graphWithWeight.nodeKey = destination;
+		graphWithWeight.nodeValue = weight;
+		if(map.containsKey(source)) {
+			map.get(source).add((T) graphWithWeight);
+		
+		} else {
+			List<T> list = new ArrayList<T>();
+			list.add((T) graphWithWeight);
+			map.put(source, list);
+		}
+		
+		
+		GraphWithWeight graphWithWeightBidirectional = new GraphWithWeight();
+		graphWithWeightBidirectional.nodeKey = source;
+		graphWithWeightBidirectional.nodeValue = weight;
+		
+		if(bidirectional) {
+			if(map.containsKey(destination)) {
+				map.get(destination).add((T) graphWithWeightBidirectional);
+			} else {
+				List<T> list = new ArrayList<T>();
+				list.add((T) graphWithWeightBidirectional);
+				map.put(destination, list);
+			}
+		}
 	}
 
 	public void printGraph() {

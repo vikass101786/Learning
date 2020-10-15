@@ -9,7 +9,10 @@ public class CycleDetectionInDirectedGraphUsingDFS<T> {
 	Map<T, List<T>> dgMap = new HashMap<T, List<T>>();
 
 	boolean isCycle(T source) {
+		// Map with node and current state details
 		Map<T, GraphDetails> map = new HashMap<T, GraphDetails>();
+		
+		// iterating main nodes in complete graph
 		for (Map.Entry<T, List<T>> iterMap : dgMap.entrySet()) {
 			T node = iterMap.getKey();
 			boolean cyclePresent = dfsHelper(node, map);
@@ -31,9 +34,11 @@ public class CycleDetectionInDirectedGraphUsingDFS<T> {
 			for (T neighbour : dgMap.get(source)) {
 				if (map.get(neighbour) != null
 						&& (map.get(neighbour).isVisited == true && (isCyclic || map.get(neighbour).inStack == true))) {
+					// if neighbour is visited and as well as present stack then return true 
 					return true;
 				} else {
 					isCyclic = dfsHelper(neighbour, map);
+					// removing from stack while traversing back
 					map.get(neighbour).inStack = false;
 				}
 			}
@@ -57,6 +62,8 @@ public class CycleDetectionInDirectedGraphUsingDFS<T> {
 		}
 
 	}
+	
+	// Class to easily track the details -- isVisited or inStack [current state], for any particular node.
 
 	static class GraphDetails {
 		boolean isVisited;
