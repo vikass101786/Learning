@@ -4,7 +4,8 @@ public class KadanesAlgorithm {
 		
 	
 	public static void main(String[] args) {
-		int arr [] = {-1,-2,-3,-4};
+		//int arr [] = {-1,-2,-3,-4};
+		int arr [] = {-2, -3, 4, -1, -2, 1, 5, -3};
 		new Exception("Stack trace").printStackTrace();
 		largestSubarrayPrb(arr,arr.length);
 	}

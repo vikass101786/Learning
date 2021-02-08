@@ -1,21 +1,12 @@
 package binaryIndexedTree;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
-
 public class InversionCount {
 	
-	static int arr [] = new int[] {0,8,2,1,4,3};
+	static int arr [] = new int[] {0,15,2,1,8,3};
 	static int BIT [] ;
 	
 	public static void main(String[] args) {
-	Set set =	new TreeSet();
-	set.addAll(Arrays.asList(BIT));
-	Map map = new HashMap();
-	
+
 		int max = arr[0];
 		for (int i= 1 ; i < arr.length ; i++) {
 			max = Math.max(max, arr[i]);

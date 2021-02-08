@@ -1,118 +1,81 @@
 package Recurssion;
 
 public class SudokuSolverCorrect {
-	
-	
+
 	public static void main(String[] args) {
 
-		
-		 int grid[][] = {{3, 0, 6, 5, 0, 8, 4, 0, 0},  
-                		 {5, 2, 0, 0, 0, 0, 0, 0, 0},  
-		                 {0, 8, 7, 0, 0, 0, 0, 3, 1},  
-		                 {0, 0, 3, 0, 1, 0, 0, 8, 0},  
-		                 {9, 0, 0, 8, 6, 3, 0, 0, 5},  
-		                 {0, 5, 0, 0, 9, 0, 6, 0, 0},  
-		                 {1, 3, 0, 0, 0, 0, 2, 5, 0},  
-		                 {0, 0, 0, 0, 0, 0, 0, 7, 4},  
-		                 {0, 0, 5, 2, 0, 6, 3, 0, 0}}; 
-		 
-		 int n = grid.length;
-		 
-		 int row = 0;
-		 
-		 int col = 0;
-		 
-		 sudokuSolver(grid , n , row , col);
-	
+		int[][] sudokuBoard = { { 5, 3, 0, 0, 7, 0, 0, 0, 0 },
+								{ 6, 0, 0, 1, 9, 5, 0, 0, 0 },
+								{ 0, 9, 8, 0, 0, 0, 0, 6, 0 },
+								{ 8, 0, 0, 0, 6, 0, 0, 0, 3 },
+								{ 4, 0, 0, 8, 0, 3, 0, 0, 1 },
+								{ 7, 0, 0, 0, 2, 0, 0, 0, 6 },
+								{ 0, 6, 0, 0, 0, 0, 2, 8, 0 },
+								{ 0, 0, 0, 4, 1, 9, 0, 0, 5 },
+								{ 0, 0, 0, 0, 8, 0, 0, 7, 9 } };
+
+		sudokuSolverMachine(sudokuBoard, 0, 0);
 	}
 
-	private static boolean sudokuSolver(int[][] grid, int n, int row, int col) {
-		// Base Case
-		
-		if( row == n -1 && col == n -1 ) {
-			printGrid(grid);
+	private static boolean sudokuSolverMachine(int[][] sudokuBoard, int col, int row) {
+		// TODO Auto-generated method stub
+		if (col == sudokuBoard.length) {
+			printSudokuBoard(sudokuBoard);
+			return true;
 		}
-		
-		// Move to next row
-		
-		if(col == n) {
-			sudokuSolver(grid, n, row+1, 0);
+
+		if (row >= sudokuBoard[0].length) {
+			return sudokuSolverMachine(sudokuBoard, col + 1, 0);
 		}
-		
-		// Skip if pre-filled
-		
-		if(grid[row][col] != 0) {
-			sudokuSolver(grid, n, row, col+1);
+
+		if (sudokuBoard[col][row] != 0) {
+			return sudokuSolverMachine(sudokuBoard, col, row + 1);
 		}
-		
-		// recursive case
-		
-		for (int number = 1 ; number <= n ; number++) {
-			if(isSafe(grid , number , row , col)) {
-				grid[row][col] = number;
-				printGrid(grid);
-				boolean canWePutTheValue = sudokuSolver(grid, n, row, col+1);
-				
-				if(canWePutTheValue) {
+
+		for (int i = 1; i <= 9; i++) {
+			if (canPlace(sudokuBoard, col, row, i)) {
+				sudokuBoard[col][row] = i;
+				boolean placedSuccessfully = sudokuSolverMachine(sudokuBoard, col, row + 1);
+				if (placedSuccessfully) {
 					return true;
 				}
 			}
 		}
-	
-		grid[row][col] = 0;
-		printGrid(grid);
+		// backtracking
+		// Here its not backtracking to the previous index but current index is getting
+		// updated as 0 which is already zero
+		sudokuBoard[col][row] = 0;
 		return false;
 	}
-	
-	private static boolean isSafe(int[][] grid, int number, int row, int col) {
 
-		
-		if(grid[row][col] != 0) {
-			sudokuSolver(grid, grid.length, row, col+1);
-		}
-		
-		// verify row 
-		
-		for (int x = 0 ; x < grid.length ; x++ ) {
-			if(grid[x][col] == number) {
-				return false;
-			}
-		}
-		
-		// verify column
-		
-		for (int y = 0 ; y < grid.length ; y++ ) {
-			if(grid[row][y] == number) {
-				return false;
-			}
-		}
-		
-		
-		// verify grid
-		
-		int rn = (int)Math.sqrt(grid.length);
-		int startRow = (row/rn)*rn;
-		int startCol = (col/rn)*rn;
-		
-		for(int rowVal = startRow ; rowVal < (startRow+rn) ; rowVal++) {
-			for(int colVal = startCol ; colVal < (startCol+rn) ; colVal++) {
-				if(grid[rowVal][colVal] == number) {
-					return false;
-				}
-			}
-		}
-	
-		return true;
-	}
-
-	public static void printGrid(int[][] grid) {
-		for(int x = 0 ; x < grid.length ; x++) {
-			for(int y = 0 ; y < grid.length ; y++) {
-				System.out.print(" "+grid[x][y]);
+	private static void printSudokuBoard(int[][] sudokuBoard) {
+		// TODO Auto-generated method stub
+		for (int i = 0; i < sudokuBoard.length; i++) {
+			for (int j = 0; j < sudokuBoard[0].length; j++) {
+				System.out.print(sudokuBoard[i][j] + " | ");
 			}
 			System.out.println();
 		}
-		System.out.println();
 	}
-	
-}	
+
+	private static boolean canPlace(int[][] sudokuBoard, int y, int x, int i) {
+		// TODO Auto-generated method stub
+		int ySubArrIndex = (y / 3) * 3;
+		int xSubArrIndex = (x / 3) * 3;
+
+		for (int j = ySubArrIndex; j < ySubArrIndex + 3; j++) {
+			for (int k = xSubArrIndex; k < xSubArrIndex + 3; k++) {
+				if (sudokuBoard[j][k] == i)
+					return false;
+			}
+		}
+
+		for (int num = 0; num < 9; num++) {
+			if (sudokuBoard[num][x] == i || sudokuBoard[y][num] == i) {
+				return false;
+			}
+		}
+
+		return true;
+	}
+}

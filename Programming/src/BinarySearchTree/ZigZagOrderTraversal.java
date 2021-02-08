@@ -76,6 +76,7 @@ public class ZigZagOrderTraversal {
 						for (int i = 0; i < list.size(); i++) {
 							System.out.print(list.get(i) + " ");
 						}
+						
 					} else {
 						Collections.reverse(list);
 						for (int i = 0; i < list.size(); i++) {

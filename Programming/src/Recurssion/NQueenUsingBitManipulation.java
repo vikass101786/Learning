@@ -15,6 +15,7 @@ public class NQueenUsingBitManipulation {
 		chessBoardSize = sc.nextInt();
 		mask = ((1 << chessBoardSize)) -1;
 		solve(0,0,0,0);
+		System.out.println(ans);
 	}
 
 	private static void solve(int row, int rowMask, int leftDiagonal, int rightDiagonal) {
@@ -23,14 +24,23 @@ public class NQueenUsingBitManipulation {
 			
 			for(int i = 0 ; i < chessBoardSize ; i++) {
 				for(int j = 0 ; j < chessBoardSize ; j++) {
-					System.out.println(board[i][j] +" ");
+					System.out.print(board[i][j] +" ");
 				}
 				System.out.println();
 			}
-			
+			System.out.println();
 			ans++;
 			return;
 		}
+		
+		/*
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * */
 		
 		int safe = mask & (~(rowMask|leftDiagonal|rightDiagonal));
 		

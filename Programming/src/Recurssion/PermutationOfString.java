@@ -5,12 +5,12 @@ import java.util.Scanner;
 public class PermutationOfString {
 	
 	static void permute(char in [] , int i) {
-		if(in[i] == '\0') {
+		if(i == in.length) {
 			System.out.println(in);
 			return;
 		}
 		
-		for (int k = i ; in[k] != '\0' ; k++) {
+		for (int k = 0 ; k < in.length ; k++) {
 			swap(in , i , k);
 			permute(in, i+1);
 			swap(in , i , k);
@@ -29,13 +29,9 @@ public class PermutationOfString {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		char[] in = new char[100];
-	    int n = sc.nextInt();
-	    for(int i = 0 ; i < n ; i++) {
-	    	in [i] = sc.next().charAt(0);
-	    }
-	    System.out.println(in);
-	    permute(in , 0);
+	   String in = sc.next();
+	    //System.out.println(in);
+	    permute(in.toCharArray() , 0);
 	}
 
 }

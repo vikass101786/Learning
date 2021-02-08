@@ -3,6 +3,25 @@ package BinarySearchTree;
 import java.util.LinkedList;
 import java.util.Queue;
 
+
+		    /*     	    1
+		     *    	  /   \
+		     *   	 /     \
+		     *  	2       3
+		     * 	   / \     / \
+		     *    /   \   /   \
+		     *   4     5 6     7
+		     * 
+		     *          1
+		     *    	  /   \
+		     *   	 /     \
+		     *  	2-------3
+		     * 	   / \     / \
+		     *    /   \   /   \
+		     *   4-----5 6-----7
+		     * 
+		     * */
+
 public class ConnectNodesAtSameLevel {
 	
 	static int arr [];

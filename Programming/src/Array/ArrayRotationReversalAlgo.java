@@ -16,6 +16,7 @@ public class ArrayRotationReversalAlgo {
 		printArray(arr);
 		rotateArr(arr1,d,arr.length);
 		printArray(arr1);
+		long ans = 1000000007;
 	}
 
 	private static void printArray(int[] arr) {

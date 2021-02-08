@@ -8,9 +8,9 @@ public class BinaryTree {
 	
 	static Scanner sc = new Scanner(System.in);
 	
-	static class TreeNode {
-		TreeNode left , right;
-		int data;
+	public static class TreeNode {
+		public TreeNode left , right;
+		public int data;
 		public TreeNode(int data) {this.data=data;}
 	}
 	
@@ -44,14 +44,15 @@ public class BinaryTree {
 	}
 	
 	public static TreeNode createTree() {
+		
 		int value = Integer.valueOf(sc.nextInt());
 		TreeNode root = new TreeNode(value);
 		boolean isExistLeft = sc.hasNextBoolean();
-		if(isExistLeft) {
+		if(isExistLeft && sc.nextBoolean()) {
 			root.left = createTree();
 		}
 		boolean isExistRight = sc.hasNextBoolean();
-		if(isExistRight) {
+		if(isExistRight && sc.nextBoolean()) {
 			root.right = createTree();
 		}
 		

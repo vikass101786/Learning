@@ -55,6 +55,10 @@ public class LinkList {
         return node;
     }
     
+    
+    
+    
+    
     public Node reverse(Node head){
         Node front = null;
         Node middle = head;

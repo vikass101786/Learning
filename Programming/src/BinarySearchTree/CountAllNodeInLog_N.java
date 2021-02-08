@@ -24,7 +24,7 @@ import BinarySearchTree.BinaryTree.TreeNode;
 
 public class CountAllNodeInLog_N {
 	public static void main(String[] args) {
-		TreeNode root = BinaryTree.createTree();
+		TreeNode root = BinaryTree.createTreeUsingPreOrder();
 		System.out.println(countAllNode(root));
 	}
 
@@ -36,7 +36,7 @@ public class CountAllNodeInLog_N {
 			return 1;
 		}
 		
-		int numOfNodeTilldepthMinusOne = (int)Math.pow(2, depthOfTree-1);
+		int numOfNodeTilldepthMinusOne = (int)Math.pow(2, depthOfTree-1) -1;
 		
 		// Maximum possible nodes at last level
 		int left = 1;
@@ -57,9 +57,9 @@ public class CountAllNodeInLog_N {
 	private static boolean check(TreeNode root, int index, int depthOfTree) {
 		// TODO Auto-generated method stub
 		int left = 1;
-		int right = (int)Math.pow(2, depthOfTree);
+		int right = (int)Math.pow(2, depthOfTree-1);
 		
-		for (int i = 0 ; i < depthOfTree ; i++) {
+		for (int i = 1 ; i < depthOfTree ; i++) {
 			int pivot = (left + right)/2;
 			if(pivot <= index) {
 				left = pivot+1;
@@ -74,8 +74,8 @@ public class CountAllNodeInLog_N {
 
 	private static int depth(TreeNode root) {
 		// TODO Auto-generated method stub
-		int count = 0;
-		if(root.left != null) {
+		int count = 1;
+		while(root.left != null) {
 			count++;
 			root = root.left;
 		}

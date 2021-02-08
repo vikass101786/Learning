@@ -17,7 +17,7 @@ public class ReverseKNodes {
             middle = end;
             i++;
         }
-        head.next = reverse(middle,k);
+        //head.next = reverse(middle,k);
         return front;
     }
     
