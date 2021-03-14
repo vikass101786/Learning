@@ -23,7 +23,7 @@ public class SubSequence {
 		String rem = input.substring(1);
 		subSequence(rem, answer);
 		subSequence(rem, answer+toOperate);
-		subSequence(rem, answer+(int)toOperate);
+		//subSequence(rem, answer+(int)toOperate);
 	}
 
 }

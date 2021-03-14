@@ -1,2 +1,3 @@
-package comapp.amazon;public interface GroupByUtility {
-}
+package comapp.amazon;
+    public interface GroupByUtility {
+    }

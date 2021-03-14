@@ -1,5 +1,8 @@
 package AdapterDesignPattern;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class AdpaterClient {
 	
 	public static void main(String[] args) {
@@ -12,5 +15,11 @@ public class AdpaterClient {
 		drawing.draw();
 		System.out.println(" Resizing....");
 		drawing.resize();
+		
+		Map<String, Shape> map = new HashMap<String, Shape>();
+		
 	}
+	
+	
+	
 }

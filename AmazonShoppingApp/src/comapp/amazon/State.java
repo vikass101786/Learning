@@ -1,2 +1,10 @@
-package comapp.amazon;public class State {
+package comapp.amazon;
+
+public enum State {
+    IN_PROGRESS,
+    DISPATCHED,
+    DELIVERED;
+
+    private State() {
+    }
 }
