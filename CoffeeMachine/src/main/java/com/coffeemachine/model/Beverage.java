@@ -4,20 +4,30 @@ import java.util.List;
 
 import lombok.Getter;
 import lombok.NonNull;
+import lombok.ToString;
 
 @Getter
-public class Beverage {
+public class Beverage implements Comparable<Beverage>{
 	
-	private String name;
+	private final String id;
 	
-	private Integer cost;
+	private final String name;
 	
-	private List<Ingredients> requiredIngredientsList;
+	private final Integer cost;
 	
-	public Beverage( @NonNull final String name , @NonNull final Integer cost , @NonNull final List<Ingredients> ingredientList) {
+	@ToString.Exclude
+	private final List<Ingredients> requiredIngredientsList;
+	
+	public Beverage( @NonNull String id , @NonNull final String name , @NonNull final Integer cost , @NonNull final List<Ingredients> ingredientList) {
 		 this.name = name;
 		 this.cost = cost;
 		 this.requiredIngredientsList = ingredientList;
+		 this.id = id;
 	}
+
+	public int compareTo(Beverage o) {
+		return o.name.compareTo(name);
+	}
+	
 	
 }

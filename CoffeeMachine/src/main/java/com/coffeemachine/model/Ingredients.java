@@ -2,8 +2,10 @@ package com.coffeemachine.model;
 
 import lombok.Getter;
 import lombok.NonNull;
+import lombok.ToString;
 
 @Getter
+@ToString
 public class Ingredients {
 
 	private final String id;
