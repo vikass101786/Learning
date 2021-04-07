@@ -6,6 +6,7 @@ import java.util.Map;
 
 public class MinimizeDifference {
 
+
 	public static void main(String[] args) {
 		int A[] = { 1, 1, 7 };
 		int B = 7;
@@ -64,5 +65,4 @@ public class MinimizeDifference {
 		}
 		return (max - min);
 	}
-
 }
