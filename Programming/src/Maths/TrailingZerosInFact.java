@@ -15,9 +15,10 @@ public class TrailingZerosInFact {
 	 */
 
 	public static void main(String[] args) {
-		for (int i = 1; i <= 100; i++) {
+		System.out.println(trailingZeroes1(30));
+		/*for (int i = 1; i <= 100; i++) {
 			System.out.println(trailingZeroes(i) + " " + i);
-		}
+		}*/
 	}
 
 	public static int trailingZeroes(int A) {
@@ -32,5 +33,15 @@ public class TrailingZerosInFact {
 
 		return no_of_zeros;
 	}
+	
+	public static int trailingZeroes1(int A) {
+	    int num = 5;
+	    int ans = 0;
+	        while (A <= num) {
+	            ans += (A/num);
+	            num *= 5;
+	        }
+	      return ans;  
+	    }
 
 }
